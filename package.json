@@ -1,0 +1,27 @@
+{
+  "name": "backend-cds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start:dev" : "nodemon main.js",
+    "start:prod" : "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhankk/backend-CDS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhankk/backend-CDS/issues"
+  },
+  "homepage": "https://github.com/jhankk/backend-CDS#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "nodemon": "^2.0.20"
+  }
+}
