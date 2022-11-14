@@ -17,4 +17,4 @@ yarn start:dev
 yarn start:prod
 ```
 
-## Copiar el archivo .env.template y reemplazarlo a sus variables
+## Copiar el archivo ``` .env.template  ``` y reemplazarlo por ``` .env  ```
