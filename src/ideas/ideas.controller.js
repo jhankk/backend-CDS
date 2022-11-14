@@ -8,31 +8,31 @@ idea.use(function timeLog(req, res, next) {
 });
 
 idea.get(
-  "/idea",
+  "/",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //ideaTomadaModel
 );
 
 idea.get(
-  "/idea/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //ideaTomadaModel
 );
 
 idea.post(
-  "/idea",
+  "/",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //todasIdeas
 );
 
 idea.put(
-  "/idea/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //todasIdeas
 );
 
 idea.delete(
-  "/idea/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   /* todasIdeas */
 );

@@ -1,40 +1,34 @@
 const express = require("express");
 const carrito = express.Router();
-const { check } = require("express-validator");
-const { validate } = require("../common/validate.middleware");
+const { findOne, find, create, update, remove } = require("./carrito.service");
 
 carrito.use(function timeLog(req, res, next) {
   next();
 });
 
 carrito.get(
-  "/carrito",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
-  /* ideaTomadaModel */
+  "/",
+  find
 );
 
 carrito.get(
-  "/carrito/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
-  /* ideaTomadaModel */
+  "/:email",
+  findOne
 );
 
 carrito.post(
-  "/carrito",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
-  /* todasIdeas */
+  "/",
+  create
 );
 
 carrito.put(
-  "/carrito/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
-  /* todasIdeas */
+  "/:email",
+  update
 );
 
 carrito.delete(
-  "/carrito/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
-  /* todasIdeas */
+  "/:email",
+  remove
 );
 
 module.exports = {

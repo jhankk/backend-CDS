@@ -8,31 +8,31 @@ ideas_tomadas.use(function timeLog(req, res, next) {
 });
 
 ideas_tomadas.get(
-  "/ideas_tomadas",
+  "/",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //ideas_tomadasTomadaModel
 );
 
 ideas_tomadas.get(
-  "/ideas_tomadas/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //ideas_tomadasTomadaModel
 );
 
 ideas_tomadas.post(
-  "/ideas_tomadas",
+  "/",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //todasideas_tomadass
 );
 
 ideas_tomadas.put(
-  "/ideas_tomadas/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //todasideas_tomadass
 );
 
 ideas_tomadas.delete(
-  "/ideas_tomadas/:id",
+  "/:id",
   [check("correo", "El correo es obligatorio").isEmail(), validate],
   //todasideas_tomadass
 );
