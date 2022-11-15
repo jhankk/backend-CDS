@@ -3,7 +3,19 @@ const { connection } = require("../common/connection");
 require("dotenv").config();
 const find = (req, res = response) => {
   //hacer query para buscar todos
-  res.json([]);
+  connection.query(
+    `
+    SELECT ideas.nombre_idea, carrito.id_carrito, carrito.correo_estudiante, carrito.id_idea
+    FROM carrito  
+    INNER JOIN ideas ON carrito.id_idea = ideas.id_idea
+   `,
+    [],
+    function (err, result, fields) {
+      result.length == 0
+        ? res.status(404).json({ response: process.env.DEFAULT })
+        : res.json(result);
+    }
+  );
 };
 
 const findOne = (req, res = response) => {
@@ -15,7 +27,7 @@ const findOne = (req, res = response) => {
     WHERE carrito.correo_estudiante = ? `,
     [req.params.email],
     function (err, result, fields) {
-      return result.length === 0
+      result.length == 0
         ? res.status(404).json({ response: process.env.DEFAULT })
         : res.json(result);
     }
@@ -23,7 +35,16 @@ const findOne = (req, res = response) => {
 };
 
 const create = (req, res = response) => {
-  //hacer query para crear uno
+  connection.query(
+    `
+  INSERT INTO carrito  
+  (correo_estudiante, id_idea)
+  values (?,?)`,
+    [req.params.email, req.params.id_idea],
+    function (err, result, fields) {
+      err ? res.json(err) : res.json(result);
+    }
+  );
 };
 
 const update = (req, res = response) => {
@@ -32,7 +53,15 @@ const update = (req, res = response) => {
 };
 
 const remove = (req, res = response) => {
-  //hacer query para remover uno
+  connection.query(
+    `
+  DELETE FROM carrito 
+  WHERE id_carrito = ?`,
+    [req.params.id_cart],
+    function (err, result, fields) {
+      err ? res.json(err) : res.json(result);
+    }
+  );
 };
 
 module.exports = {

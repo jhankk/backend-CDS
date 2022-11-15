@@ -2,7 +2,7 @@ const express = require("express");
 const carrito = express.Router();
 const { findOne, find, create, update, remove } = require("./carrito.service");
 
-carrito.use(function timeLog(req, res, next) {
+carrito.use((req, res, next) => {
   next();
 });
 
@@ -17,7 +17,7 @@ carrito.get(
 );
 
 carrito.post(
-  "/",
+  "/:email/:id_idea",
   create
 );
 
@@ -27,7 +27,7 @@ carrito.put(
 );
 
 carrito.delete(
-  "/:email",
+  "/:id_cart",
   remove
 );
 
