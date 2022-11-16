@@ -24,7 +24,8 @@ const findOne = (req, res = response) => {
     SELECT ideas.nombre_idea, carrito.id_carrito, carrito.correo_estudiante, carrito.id_idea
     FROM carrito  
     INNER JOIN ideas ON carrito.id_idea = ideas.id_idea
-    WHERE carrito.correo_estudiante = ? `,
+    WHERE carrito.correo_estudiante = ? 
+    `,
     [req.params.email],
     function (err, result, fields) {
       result.length == 0
@@ -64,10 +65,4 @@ const remove = (req, res = response) => {
   );
 };
 
-export  {
-  find,
-  findOne,
-  create,
-  update,
-  remove,
-};
+export { find, findOne, create, update, remove };

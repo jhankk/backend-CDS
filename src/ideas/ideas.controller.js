@@ -1,6 +1,6 @@
 import { Router } from "express";
-const idea = Router();
 import { find } from "../carrito/carrito.service.js";
+const idea = Router();
 
 
 idea.use(function timeLog(req, res, next) {

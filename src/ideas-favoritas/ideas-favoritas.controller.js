@@ -1,28 +1,26 @@
 import { Router } from "express";
-import { find } from "../carrito/carrito.service.js";
+import { find, findOne, create, remove} from "./ideas-favoritas.service.js";
 const ideas_favoritas = Router();
 
-
-
 ideas_favoritas.use(function timeLog(req, res, next) {
-
+  next();
 });
 
 ideas_favoritas.get(
   "/",
   find
-  //ideas_favoritasTomadaModel
+  //ideas_favoritasTomadaModelALL
 );
 
 ideas_favoritas.get(
-  "/:id",
-  find
+  "/:email",
+  findOne
   //ideas_favoritasTomadaModel
 );
 
 ideas_favoritas.post(
-  "/",
-  find
+  "/:email/:id_idea",
+  create
   //todasideas_favoritass
 );
 
@@ -33,8 +31,8 @@ ideas_favoritas.put(
 );
 
 ideas_favoritas.delete(
-  "/:id",
-  find
+  "/:id_ideaFav",
+  remove
   //todasideas_favoritass
 );
 
