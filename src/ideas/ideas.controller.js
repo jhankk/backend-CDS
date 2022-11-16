@@ -1,42 +1,42 @@
-const express = require("express");
-const idea = express.Router();
-const { check } = require("express-validator");
-const { validate } = require("../common/validate.middleware");
+import { Router } from "express";
+const idea = Router();
+import { find } from "../carrito/carrito.service.js";
+
 
 idea.use(function timeLog(req, res, next) {
   next();
 });
 
 idea.get(
-  "/",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
+  "/",find
+ 
   //ideaTomadaModel
 );
 
 idea.get(
-  "/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
+  "/:id",find
+  
   //ideaTomadaModel
 );
 
 idea.post(
-  "/",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
+  "/",find
+  
   //todasIdeas
 );
 
 idea.put(
-  "/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
+  "/:id",find
+ 
   //todasIdeas
 );
 
 idea.delete(
-  "/:id",
-  [check("correo", "El correo es obligatorio").isEmail(), validate],
+  "/:id",find
+ 
   /* todasIdeas */
 );
 
-module.exports = {
+export  {
     idea
 };

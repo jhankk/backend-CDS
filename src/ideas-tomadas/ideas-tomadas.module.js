@@ -1,5 +1,5 @@
-const { ideas_tomadas } = require("./ideas-tomadas.controller");
+import { ideas_tomadas } from "./ideas-tomadas.controller.js";
 
-module.exports = {
+export  {
 ideas_tomadas
 }

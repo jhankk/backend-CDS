@@ -1,5 +1,5 @@
-const { ideas_favoritas } = require("./ideas-favoritas.controller");
+import { ideas_favoritas } from "./ideas-favoritas.controller.js";
 
-module.exports ={
+export {
     ideas_favoritas
 }

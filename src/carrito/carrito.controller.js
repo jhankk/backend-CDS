@@ -1,6 +1,6 @@
-const express = require("express");
-const carrito = express.Router();
-const { findOne, find, create, update, remove } = require("./carrito.service");
+import { Router } from "express";
+const carrito = Router();
+import { findOne, find, create, update, remove } from "./carrito.service.js";
 
 carrito.use((req, res, next) => {
   next();
@@ -31,6 +31,6 @@ carrito.delete(
   remove
 );
 
-module.exports = {
+export  {
   carrito
 };

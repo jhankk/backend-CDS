@@ -1,27 +1,21 @@
-const express = require("express");
+import express, { json } from "express";
 const app = express();
-const cors = require("cors");
-const { carrito } = require("./carrito/carrito.module");
-const { idea } = require("./ideas/ideas.module");
-const { ideas_favoritas } = require("./ideas-favoritas/ideas-favoritas.module");
-const { ideas_tomadas } = require("./ideas-tomadas/ideas-tomadas.module");
-require("dotenv").config();
+import cors from "cors";
+import { carrito } from "./carrito/carrito.module.js";
+import { idea } from "./ideas/ideas.module.js";
+import { ideas_favoritas } from "./ideas-favoritas/ideas-favoritas.module.js";
+import { ideas_tomadas } from "./ideas-tomadas/ideas-tomadas.module.js";
+import "dotenv/config.js";
 
 app
   .use(cors())
-  .use(express.json())
+  .use(json())
   .use("/carrito", carrito)
   .use("/ideas", idea)
   .use("/ideas-favoritas", ideas_favoritas)
   .use("/ideas-tomadas", ideas_tomadas);
 
 
-
-const server = require("http").createServer(app);
-
-const io = require("socket.io")(server);
-
-module.exports = {
-  server,
-  io
+export  {
+  app,
 };

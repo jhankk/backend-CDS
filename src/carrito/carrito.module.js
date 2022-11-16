@@ -1,6 +1,6 @@
-const { carrito } = require("./carrito.controller");
+import  {carrito}  from "./carrito.controller.js";
 
 
-module.exports = {
+export  {
     carrito
 }

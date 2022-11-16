@@ -1,37 +1,43 @@
-const express = require("express");
-const ideas_favoritas = express.Router();
-const { check } = require("express-validator");
-const { validate } = require("../common/validate.middleware");
+import { Router } from "express";
+import { find } from "../carrito/carrito.service.js";
+const ideas_favoritas = Router();
+
+
 
 ideas_favoritas.use(function timeLog(req, res, next) {
-  next();
+
 });
 
 ideas_favoritas.get(
   "/",
+  find
   //ideas_favoritasTomadaModel
 );
 
 ideas_favoritas.get(
   "/:id",
+  find
   //ideas_favoritasTomadaModel
 );
 
 ideas_favoritas.post(
   "/",
+  find
   //todasideas_favoritass
 );
 
 ideas_favoritas.put(
   "/:id",
+  find
   //todasideas_favoritass
 );
 
 ideas_favoritas.delete(
   "/:id",
+  find
   //todasideas_favoritass
 );
 
-module.exports = {
+export  {
     ideas_favoritas
 };

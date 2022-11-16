@@ -1,5 +1,5 @@
-const { idea } = require("./ideas.controller");
+import { idea } from "./ideas.controller.js";
 
-module.exports = {
+export {
     idea
 }

@@ -1,3 +1,3 @@
-const { server } = require("./app.module");
+import { app } from "./app.module.js";
 
-server.listen(process.env.PORT)
+app.listen(process.env.PORT)

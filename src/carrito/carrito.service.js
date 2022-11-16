@@ -1,6 +1,6 @@
-const { response } = require("express");
-const { connection } = require("../common/connection");
-require("dotenv").config();
+import { response } from "express";
+import { connection } from "../common/connection.js";
+import "dotenv/config.js";
 const find = (req, res = response) => {
   //hacer query para buscar todos
   connection.query(
@@ -64,7 +64,7 @@ const remove = (req, res = response) => {
   );
 };
 
-module.exports = {
+export  {
   find,
   findOne,
   create,

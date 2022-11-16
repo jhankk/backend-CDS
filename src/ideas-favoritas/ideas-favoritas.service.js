@@ -1,5 +1,5 @@
-const { response } = require("express");
-const { connection } = require("../common/connection");
+import { response } from "express";
+import { connection } from "../common/connection";
 
 
 const find = (req, res = response) => {
@@ -19,7 +19,7 @@ const find = (req, res = response) => {
   );
 };
 
-module.exports = 
+export  
 {
     find
 }
